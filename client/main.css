@@ -1,0 +1,16 @@
+/* CSS declarations go here */
+
+.home {
+  background-image:
+  -webkit-linear-gradient(rgba(0, 0, 0, .2) 0%, rgba(0, 0, 0, .2) 100%),
+  url('img/strawberries.jpg');
+
+  background-image:
+  -o-linear-gradient(rgba(0, 0, 0, .2) 0%, rgba(0, 0, 0, .2) 100%),
+  url('img/strawberries.jpg');
+
+  background-image:
+  linear-gradient(rgba(0, 0, 0, .2) 0%, rgba(0, 0, 0, .2) 100%),
+  url('img/strawberries.jpg');
+
+}
