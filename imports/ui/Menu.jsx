@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {Component, PropTypes} from 'react';
 
 // Menu component - represents the Menu
 export default class Menu extends Component {
@@ -11,14 +11,24 @@ export default class Menu extends Component {
         <nav id="sidebar-wrapper">
           <ul className="sidebar-nav">
             <li className="sidebar-brand">
-              <a className="js-scroll-trigger" href="#page-top">Start Bootstrap</a>
+              <a className="js-scroll-trigger" href="#page-top">{this.props.title}</a>
             </li>
-            <li className="sidebar-nav-item">
-              <a className="js-scroll-trigger" href="#page-top">Home</a>
-            </li>
+            {this.props.items.map(i => {
+              return <li className="sidebar-nav-item" key={i.name}>
+                <a className="js-scroll-trigger" onClick={i.callback}>{i.name}</a>
+              </li>
+            })}
           </ul>
         </nav>
       </div>
     )
   }
-}
+};
+
+Menu.propTypes = {
+  title : PropTypes.string.isRequired,
+  items : PropTypes.arrayOf(PropTypes.shape({
+    name: PropTypes.string,
+    callback: PropTypes.func
+  })).isRequired
+};
