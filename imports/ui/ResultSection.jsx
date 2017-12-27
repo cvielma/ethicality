@@ -1,28 +1,45 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 
-// Search component - represents the Search Section
+// ResultSection component -> renders the company's profile
 export default class ResultSection extends Component {
+  //TODO: improve by extracting parts of the template into variables
+  //TODO: export general profile shape
+  /** Profile
+    {
+      name: _,
+      img: _,
+      summary: _,
+      highlights: [highlight1, highlight2],
+      details: _,
+      related: [
+        {
+          text: _,
+          img: _
+        }
+      ]
+  }
+  */
+
   render() {
     return (
       <div className="container">
 
-        <h1 className="my-4">Company</h1>
+        <h1 className="my-4">{this.props.profile.name}</h1>
 
         <div className="row">
 
           <div className="col-md-5">
-            <img className="img-fluid" src="http://placehold.it/750x500" alt=""></img>
+            <img className="img-fluid" src={this.props.profile.img} alt=""></img>
           </div>
 
           <div className="col-md-7">
             <h3 className="my-1">Company Summary</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae. Sed dui lorem, adipiscing in adipiscing et, interdum nec metus. Mauris ultricies, justo eu convallis placerat, felis enim.</p>
+            <p>{this.props.profile.summary}</p>
             <h3 className="my-3">Highlights</h3>
             <ul>
-              <li>Lorem Ipsum</li>
-              <li>Dolor Sit Amet</li>
-              <li>Consectetur</li>
-              <li>Adipiscing Elit</li>
+              {this.props.profile.highlights.map((highlight, index) => {
+                return <li key={index}>{highlight}</li>;
+              })}
             </ul>
           </div>
 
@@ -31,37 +48,25 @@ export default class ResultSection extends Component {
         <h3 className="my-4">Details</h3>
 
         <div className="row">
+          <p>{this.props.profile.details}</p>
         </div>
 
         <h3 className="my-4">Related</h3>
         <div className="row">
-
-          <div className="col-md-3 col-sm-6 mb-4">
-            <a href="#">
-              <img className="img-fluid" src="http://placehold.it/500x300" alt=""></img>
-            </a>
-          </div>
-
-          <div className="col-md-3 col-sm-6 mb-4">
-            <a href="#">
-              <img className="img-fluid" src="http://placehold.it/500x300" alt=""></img>
-            </a>
-          </div>
-
-          <div className="col-md-3 col-sm-6 mb-4">
-            <a href="#">
-              <img className="img-fluid" src="http://placehold.it/500x300" alt=""></img>
-            </a>
-          </div>
-
-          <div className="col-md-3 col-sm-6 mb-4">
-            <a href="#">
-              <img className="img-fluid" src="http://placehold.it/500x300" alt=""></img>
-            </a>
-          </div>
-
+          {this.props.profile.related.map((related, index) => {
+            return <div className="col-md-3 col-sm-6 mb-4" key={index}>
+              <p>{related.text}</p>
+              <a href="#">
+                <img className="img-fluid" src={related.img} alt=""></img>
+              </a>
+            </div>
+          })}
         </div>
       </div>
     );
   }
+}
+
+ResultSection.propTypes = {
+  profile: PropTypes.object.isRequired
 }

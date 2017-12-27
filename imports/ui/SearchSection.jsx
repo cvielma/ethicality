@@ -12,7 +12,7 @@ export default class SearchSection extends Component {
     event.preventDefault();
     const data = new FormData(event.target);
 
-    console.log('Form Data:' + data);
+    console.log('Form Data:' + JSON.stringify(data));
     console.log('HandleSubmit: ' + this.props.handleSubmit);
     this.props.handleSubmit(data.get("search"));
   }

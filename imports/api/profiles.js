@@ -12,18 +12,28 @@ Meteor.methods({
 
     // Find Products``
     const searchPattern = '.*' + text + '.*';
-    const foundProducts = Products.find({
+    const foundProfiles = Profiles.find({
       'name': { $regex: searchPattern, $options: 'ix' }
-    }).fetch();
+      }).fetch();
 
-    console.log('FoundProducts: ' + JSON.stringify(foundProducts[0]));
+    console.log('FoundProducts: ' + JSON.stringify(foundProfiles[0]));
 
-    //TODO: Also search for profile
-    if (foundProducts && foundProducts.length > 0) {
+    if (foundProfiles && foundProfiles.length > 0) {
       //TODO: create heuristics to search for most probable brand
-      return foundProducts[0];
+      return foundProfiles[0];
     }
     return null;
+
+    //TODO: Also search for products
+    // const foundProducts = Products.find({
+    //   'name': { $regex: searchPattern, $options: 'ix' }
+    // }).fetch();
+    //
+    // if (foundProducts && foundProducts.length > 0) {
+    //   //TODO: create heuristics to search for most probable brand
+    //   return foundProducts[0];
+    // }
+    // return null;
   }
 
 });

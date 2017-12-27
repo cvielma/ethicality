@@ -41,6 +41,7 @@ export default class App extends Component {
       console.log('Result: ' + result);
       if (result) {
         //Set found variable
+        this.setState({profile: result}); //TODO: assuming result is profile
         this.goToSection(SECTION.FOUND);
       } else {
         this.goToSection(SECTION.NOT_FOUND);
@@ -56,7 +57,7 @@ export default class App extends Component {
           ? (<SearchSection handleSubmit={this.search} />)
           : ''}
         {this.isCurrentSection(SECTION.FOUND)
-          ? (<ResultSection/>)
+          ? (<ResultSection profile={this.state.profile}/>)
           : ''}
         {this.isCurrentSection(SECTION.NOT_FOUND)
           ? (<NoResultSection/>)
