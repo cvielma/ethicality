@@ -12,19 +12,10 @@ export default class SearchSection extends Component {
     event.preventDefault();
     const data = new FormData(event.target);
 
-    console.log(data);
-    this.notifyParent(data);
+    console.log('Form Data:' + data);
+    console.log('HandleSubmit: ' + this.props.handleSubmit);
+    this.props.handleSubmit(data.get("search"));
   }
-
-  notifyParent(data) {
-    if (this.props.callback) {
-      if (data.get("search")) {
-          this.props.callback("FOUND");
-      } else {
-        this.props.callback();
-      }
-    }
-  };
 
   render() {
     return (
@@ -56,5 +47,5 @@ export default class SearchSection extends Component {
 }
 
 SearchSection.propTypes = {
-  callback: PropTypes.func
+  handleSubmit: PropTypes.func
 }

@@ -3,6 +3,7 @@ import Menu from './Menu.jsx';
 import SearchSection from './SearchSection.jsx';
 import ResultSection from './ResultSection.jsx';
 import NoResultSection from './NoResultSection.jsx';
+import { Meteor } from 'meteor/meteor';
 
 const SECTION = {
   "SEARCH": 0,
@@ -15,7 +16,7 @@ export default class App extends Component {
   constructor() {
     super();
     this.state = {currentSection: SECTION.SEARCH};
-    this.searchResult = this.searchResult.bind(this);
+    this.search = this.search.bind(this);
   };
 
   isCurrentSection(section) {
@@ -35,13 +36,16 @@ export default class App extends Component {
     ];
   }
 
-  searchResult(content) {
-    if (content) {
-      //Set found variable
-      this.goToSection(SECTION.FOUND);
-    } else {
-      this.goToSection(SECTION.NOT_FOUND);
-    }
+  search(content) {
+    Meteor.call('profiles.searchByName', content, (error, result) => {
+      console.log('Result: ' + result);
+      if (result) {
+        //Set found variable
+        this.goToSection(SECTION.FOUND);
+      } else {
+        this.goToSection(SECTION.NOT_FOUND);
+      }
+    });
   }
 
   render() {
@@ -49,7 +53,7 @@ export default class App extends Component {
       <div>
         <Menu title="Ethicality" items={this.menuItems()}/>
         {this.isCurrentSection(SECTION.SEARCH)
-          ? (<SearchSection callback={this.searchResult} />)
+          ? (<SearchSection handleSubmit={this.search} />)
           : ''}
         {this.isCurrentSection(SECTION.FOUND)
           ? (<ResultSection/>)
