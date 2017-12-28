@@ -6,3 +6,9 @@ Accessing PropTypes via the main React package is deprecated, and will be remove
 
 - How to use regular javascript in jsx (const, private, function, etc): https://stackoverflow.com/questions/32291851/how-to-define-constants-in-reactjs
 - Add REST support: http://www.meteorpedia.com/read/REST_API
+
+
+Thursday
+- Clean up and make "pretty" and stable for next iteration
+
+- Fix TODOs

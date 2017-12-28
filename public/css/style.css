@@ -808,3 +808,25 @@
 .glyphicon-menu-up:before {
   content: "\e260";
 }
+
+/** From Stylish Portfolio theme */
+.mainpage {
+  min-height: 30rem;
+  position: relative;
+  display: table;
+  width: 100%;
+  height: auto;
+  padding-top: 8rem;
+  padding-bottom: 8rem;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover; }
+  .mainPage h1 {
+    font-size: 4rem;
+    margin: 0;
+    padding: 0; }
+  @media (min-width: 992px) {
+    .mainPage {
+      height: 100vh; }
+      .mainPage h1 {
+        font-size: 5.5rem; } }

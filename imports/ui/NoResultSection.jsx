@@ -4,6 +4,7 @@ import React, { Component } from 'react';
 export default class NoResultSection extends Component {
   render() {
     return (
+      <section className="mainpage d-flex">
       <div className="container">
 
         <div className="col-md-12">
@@ -13,6 +14,7 @@ export default class NoResultSection extends Component {
           <h3><a>Go back</a></h3>
         </div>
       </div>
+    </section>
     );
   }
 }

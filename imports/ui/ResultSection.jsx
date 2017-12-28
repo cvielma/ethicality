@@ -1,4 +1,5 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 // ResultSection component -> renders the company's profile
 export default class ResultSection extends Component {
@@ -22,6 +23,7 @@ export default class ResultSection extends Component {
 
   render() {
     return (
+    <section className="mainpage d-flex">
       <div className="container">
 
         <h1 className="my-4">{this.props.profile.name}</h1>
@@ -63,6 +65,7 @@ export default class ResultSection extends Component {
           })}
         </div>
       </div>
+    </section>
     );
   }
 }

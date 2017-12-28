@@ -1,9 +1,9 @@
-import React, {Component, PropTypes} from 'react';
+import React, {Component} from 'react';
 import Menu from './Menu.jsx';
 import SearchSection from './SearchSection.jsx';
 import ResultSection from './ResultSection.jsx';
 import NoResultSection from './NoResultSection.jsx';
-import { Meteor } from 'meteor/meteor';
+import {Meteor} from 'meteor/meteor';
 
 const SECTION = {
   "SEARCH": 0,
@@ -15,7 +15,9 @@ const SECTION = {
 export default class App extends Component {
   constructor() {
     super();
-    this.state = {currentSection: SECTION.SEARCH};
+    this.state = {
+      currentSection: SECTION.SEARCH
+    };
     this.search = this.search.bind(this);
   };
 
@@ -37,6 +39,7 @@ export default class App extends Component {
   }
 
   search(content) {
+    this.setConnectionStatus(); //TODO: handle status nicer
     Meteor.call('profiles.searchByName', content, (error, result) => {
       console.log('Result: ' + result);
       if (result) {
@@ -49,19 +52,36 @@ export default class App extends Component {
     });
   }
 
+  setConnectionStatus() {
+    const currentStatus = Meteor.status().connected;
+    if (currentStatus != this.state.online) {
+      this.setState({online: currentStatus});
+    }
+  }
+
+  renderSection() {
+    if (this.isCurrentSection(SECTION.SEARCH)) {
+      return (<SearchSection handleSubmit={this.search}/>);
+    } else if (this.isCurrentSection(SECTION.FOUND)) {
+      return (<ResultSection profile={this.state.profile}/>);
+    } else if (this.isCurrentSection(SECTION.NOT_FOUND)) {
+      return (<NoResultSection/>);
+    } else {
+      return (
+        <h3>
+          Error, no Section found
+        </h3>
+      );
+    }
+  }
+
   render() {
     return (
       <div>
-        <Menu title="Ethicality" items={this.menuItems()}/>
-        {this.isCurrentSection(SECTION.SEARCH)
-          ? (<SearchSection handleSubmit={this.search} />)
-          : ''}
-        {this.isCurrentSection(SECTION.FOUND)
-          ? (<ResultSection profile={this.state.profile}/>)
-          : ''}
-        {this.isCurrentSection(SECTION.NOT_FOUND)
-          ? (<NoResultSection/>)
-          : ''}
+        <Menu title="Ethicality" items={this.menuItems()}/> {this.renderSection()}
+        {this.state.online
+          ? ''
+          : <h3>Offline</h3>}
       </div>
     );
   }
