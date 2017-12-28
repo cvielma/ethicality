@@ -1,0 +1,77 @@
+/* 1 */
+{
+    "_id" : ObjectId("5a43c8123334d58f21808f21"),
+    "name" : "Nivea",
+    "img" : "https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/Nivea_Logo.png/300px-Nivea_Logo.png",
+    "summary" : "Nivea is a German personal care brand that specializes in body-care. It is owned by the Hamburg-based company Beiersdorf Global AG. The company was founded on March 28, 1882, by Paul Carl Beiersdorf (Wikipedia)",
+    "highlights" : [
+        "Racism"
+    ],
+    "details" : "In August 2011, Nivea published an advertisement that drew widespread criticism in online and social media as being racist",
+    "related" : []
+}
+
+/* 2 */
+{
+    "_id" : ObjectId("5a43ca6814d7f68864a2a09d"),
+    "name" : "ING Group",
+    "img" : "https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/ING_Group_N.V._Logo.svg/330px-ING_Group_N.V._Logo.svg.png",
+    "summary" : "The ING Group (Dutch: ING Groep) is a Dutch multinational banking and financial services corporation headquartered in Amsterdam. Its primary businesses are retail banking, direct banking, commercial banking, investment banking, asset management, and insurance services. ING is an abbreviation for Internationale Nederlanden Groep (English: International Netherlands Group). (Wikipedia)",
+    "highlights" : [
+        "Removed loan to Dakota Pipeline",
+        "Other stuff"
+    ],
+    "details" : "In recent weeks, the large multinational Dutch bank ING and Norwegian bank DNB announced plans to sell off their stakes in loans funding the controversial Dakota Access Pipeline. The divestments came as activist investors stepped up their calls for banks and other financial institutions to stop financing projects related to fossil fuels development. (https://www.greenbiz.com/article/banks-ing-and-dnb-are-backing-away-pipelines)",
+    "related" : [
+        {
+            "text" : "Norwegian bank DNB",
+            "img" : "https://www.dnb.no/portalfront/bilder/logoer/1-1-5-dnb-rgb-solid-220x113.jpg"
+        }
+    ]
+}
+
+/* 3 */
+{
+    "_id" : ObjectId("5a43cb4f14d7f68864a2a09e"),
+    "name" : "Procter & Gamble",
+    "img" : "https://en.wikipedia.org/wiki/File:Procter_and_Gamble_Logo.svg",
+    "summary" : "Procter & Gamble Co., also known as P&G, is an American multi-national consumer goods corporation headquartered in downtown Cincinnati, Ohio, founded in 1837 by British American William Procter and Irish American James Gamble.[2] It primarily specializes in a wide range of cleaning agents and personal care and hygienics products. Before the sale of Pringles to the Kellogg Company, its product portfolio also included foods, snacks and beverages.[3] (Wikipedia)",
+    "highlights" : [
+        "Price Fixing",
+        "Toxic shock syndrome and tampons",
+        "Animal testing",
+        "Human rights violations of palm oil in 2016"
+    ],
+    "details" : "Check Wikipedia: https://en.wikipedia.org/wiki/Procter_%26_Gamble#Controversies",
+    "related" : [
+        {
+            "text" : "Kellog's",
+            "img" : "https://en.wikipedia.org/wiki/File:Kellogg%27s-Logo.svg"
+        },
+        {
+            "text" : "Pringles",
+            "img" : "https://upload.wikimedia.org/wikipedia/en/thumb/7/71/Pringles.svg/330px-Pringles.svg.png"
+        }
+    ]
+}
+
+/* 4 */
+{
+    "_id" : ObjectId("5a43cbe814d7f68864a2a09f"),
+    "name" : "McDonald's",
+    "img" : "https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/McDonald%27s_Golden_Arches.svg/225px-McDonald%27s_Golden_Arches.svg.png",
+    "summary" : "McDonald's was founded in 1940 as a restaurant operated by Richard and Maurice McDonald, in San Bernardino, California, USA. They rechristened their business as a hamburger stand. The first time a McDonald's franchise used the Golden Arches logo was in 1953 at the opening of Phoenix, Arizona, USA. In 1955, Ray Kroc, a businessman, joined the company as a franchise agent and proceeded to purchase the chain from the McDonald brothers. McDonald's had its original headquarters in Oak Brook, Illinois, but has approved plans to move its global headquarters to Chicago by 2018. (Wikipedia)",
+    "highlights" : [
+        "Worker wages",
+        "Animal welfare",
+        "Environmental record",
+        "Use of GMOs"
+    ],
+    "details" : "Check Wikipedia: https://en.wikipedia.org/wiki/McDonald%27s#Criticism",
+    "related" : [
+        {
+            "text" : "Burger King",
+            "img" : "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Burger_King_Logo.svg/225px-Burger_King_Logo.svg.png"
+        }
+    ]
+}
