@@ -11,6 +11,4 @@ plugins {
 
 include("data")
 include("backend")
-
 rootProject.name = "ethicality"
-
